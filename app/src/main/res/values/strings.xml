@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mood Journal</string>
+    <string name="mood_journal">Mood Journal</string>
+    <string name="use_the_mood_journal">Use the mood journal to track your state and get tips how to improve your state</string>
+    <string name="save">Save</string>
+    <string name="new_prompt">New Prompt</string>
+    <string name="pause_audio">Pause Audio</string>
+    <string name="play_audio">Play Audio</string>
+    <string name="color">Color</string>
+    <string name="record_voice_note">Record Voice Note</string>
+    <string name="tap_the_below_button_when_ready">Tap the below button when ready.</string>
+    <string name="save_recoding">Save Recoding</string>
+    <string name="start_recoding">Start Recoding</string>
+    <string name="capture_your_life_s_moments">Capture your life\'s moments</string>
+    <string name="write_entry">Write Entry</string>
+    <string name="no_result_found">No Result Found</string>
+    <string name="what_should_we_call_you">What should we call you?</string>
+    <string name="enter_your_first_name">Enter your first name</string>
+    <string name="continue_btn">Continue</string>
+</resources>
