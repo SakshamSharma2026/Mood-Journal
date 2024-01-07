@@ -9,6 +9,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("/Users/sakshamsharma/Projects/InnerCanvas/app/Untitled")
+            storePassword = "12345678"
+            keyAlias = "MoodJournalKey"
+            keyPassword = "12345678"
+        }
+    }
     namespace = "com.saksham.jetpack.moodjournal"
     compileSdk = 34
 
@@ -27,11 +35,15 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            testProguardFiles("test-proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -83,16 +95,13 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48")
     ksp("com.google.dagger:hilt-compiler:2.48")
 
-    // Import the BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
-
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
 
     //Navigation Components
-    implementation( "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation( "androidx.navigation:navigation-compose:2.7.6")
-    implementation( "androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
@@ -112,7 +121,6 @@ dependencies {
 
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-crashlytics")
-
 
 
 }

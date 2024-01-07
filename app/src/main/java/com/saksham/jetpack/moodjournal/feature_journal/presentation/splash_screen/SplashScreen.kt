@@ -3,14 +3,12 @@ package com.saksham.jetpack.moodjournal.feature_journal.presentation.splash_scre
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -67,18 +65,17 @@ fun SplashScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Card(
+        Box(
             modifier = Modifier
-                .padding(bottom = 10.dp)
-                .width(100.dp)
-                .height(100.dp)
-                .clip(CircleShape),
-            shape = CircleShape,
-            colors = CardDefaults.cardColors(Color.White)
+                .clip(CircleShape)
+                .size(105.dp)
+                .background(Color.White), contentAlignment = Alignment.Center
         ) {
-
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                painter = painterResource(id = R.drawable.applogo),
+                modifier = Modifier
+                    .size(100.dp)
+                ,
                 contentDescription = null
             )
         }

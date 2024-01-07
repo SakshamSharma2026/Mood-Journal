@@ -76,7 +76,6 @@ import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_jou
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_journal.components.VerticalDivider
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_journal.util.AndroidAudioPlayer
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.journal_screen.UiEvent
-import com.saksham.jetpack.moodjournal.feature_journal.util.requiredAudioPermission
 import com.saksham.jetpack.moodjournal.feature_journal.util.sp
 import com.saksham.jetpack.moodjournal.ui.theme.Violet
 import com.saksham.jetpack.moodjournal.ui.theme.fontFamily
@@ -461,18 +460,18 @@ fun AddEditJournalScreen(
                                         bottomSheetScaffoldState.bottomSheetState.expand()
                                     }
                                 })
-                        VerticalDivider(modifier = Modifier.padding(horizontal = 15.dp))
-                        Icon(painterResource(id = R.drawable.microphone_icon),
-                            contentDescription = null,
-                            tint = Color.Black,
+                        /*        VerticalDivider(modifier = Modifier.padding(horizontal = 15.dp))
+                                Icon(painterResource(id = R.drawable.microphone_icon),
+                                    contentDescription = null,
+                                    tint = Color.Black,
 
-                            modifier = Modifier
-                                .size(18.dp)
-                                .clip(CircleShape)
-                                .clickable {
-                                    requiredAudioPermission(componentActivity)
-                                    viewModel.onEvent(AddEditJournalEvent.ToggleVoiceRecorderSheet)
-                                })
+                                    modifier = Modifier
+                                        .size(18.dp)
+                                        .clip(CircleShape)
+                                        .clickable {
+                                            requiredAudioPermission(componentActivity)
+                                            viewModel.onEvent(AddEditJournalEvent.ToggleVoiceRecorderSheet)
+                                        })*/
                         sp(value = 8)
                     }
                 }

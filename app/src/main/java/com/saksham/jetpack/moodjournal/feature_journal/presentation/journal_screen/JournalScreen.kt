@@ -167,7 +167,7 @@ fun VerticalList(activity: ComponentActivity, navController: NavController, stat
         if (state.noResultFound)
             Text(text = stringResource(R.string.no_result_found))
         else
-            PandaCardView(activity, navController)
+            PandaCardView(navController)
     } else {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),

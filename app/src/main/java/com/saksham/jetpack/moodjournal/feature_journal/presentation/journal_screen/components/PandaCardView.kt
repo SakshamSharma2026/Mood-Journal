@@ -1,6 +1,5 @@
 package com.saksham.jetpack.moodjournal.feature_journal.presentation.journal_screen.components
 
-import androidx.activity.ComponentActivity
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -44,7 +44,7 @@ import com.saksham.jetpack.moodjournal.ui.theme.Violet
 
 
 @Composable
-fun PandaCardView(activity: ComponentActivity, navController: NavController) {
+fun PandaCardView(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Card(
             modifier = Modifier
@@ -76,7 +76,7 @@ fun PandaCardView(activity: ComponentActivity, navController: NavController) {
                     text = getCurrentDateTime(), textAlign = TextAlign.Center, fontSize = 12.sp
                 )
                 Text(
-                    text = "Let's help you write your first entry!",
+                    text = stringResource(R.string.let_s_help_you_write_your_first_entry),
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 20.sp,
                     textAlign = TextAlign.Center

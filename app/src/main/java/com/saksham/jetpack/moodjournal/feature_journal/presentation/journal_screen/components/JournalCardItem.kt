@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -25,7 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -34,12 +32,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.saksham.jetpack.moodjournal.R
 import com.saksham.jetpack.moodjournal.feature_journal.domain.model.JournalDataResponse
 import com.saksham.jetpack.moodjournal.feature_journal.domain.util.journal.JournalEvent
 import com.saksham.jetpack.moodjournal.feature_journal.navigation.Screen
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.journal_screen.JournalViewModel
 import com.saksham.jetpack.moodjournal.feature_journal.util.shareContent
+import com.saksham.jetpack.moodjournal.feature_journal.util.sp
 
 
 fun journalData(
@@ -57,6 +55,12 @@ fun CardViewItem(
     journalViewModel: JournalViewModel = hiltViewModel()
 ) {
 
+    val columnSize = if (data.imageUri != Uri.EMPTY) {
+        0.6f
+    } else {
+        1f
+    }
+
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -72,11 +76,30 @@ fun CardViewItem(
         shape = RoundedCornerShape(16.dp)
     ) {
         Column(modifier.padding(horizontal = 12.dp, vertical = 10.dp)) {
+            sp(value = 10)
             Row(
                 modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                Column(modifier.fillMaxWidth(columnSize)) {
+                    if (data.title.isNotBlank()) {
+                        Text(
+                            text = data.title,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Spacer(modifier = Modifier.height(5.dp))
+                    }
+                    Text(
+                        text = data.content,
+                        fontSize = 14.sp,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
                 if (data.imageUri != Uri.EMPTY) {
                     Image(
                         painter = rememberAsyncImagePainter(
@@ -88,58 +111,37 @@ fun CardViewItem(
                         ),
                         contentDescription = null,
                         modifier = modifier
-                            .fillMaxWidth(if (data.audioFilePath != null) 1f else 0.5f)
-                            .height(150.dp)
+                            .width(80.dp)
+                            .height(80.dp)
                             .clip(RoundedCornerShape(8.dp)),
                         contentScale = ContentScale.FillBounds,
                     )
                 }
-                Spacer(modifier = modifier.width(5.dp))
-                if (data.audioFilePath != null) {
-                    Card(
-                        modifier
-                            .fillMaxWidth()
-                            .height(150.dp)
-                            .clip(RoundedCornerShape(8.dp)),
-                        colors = CardDefaults.cardColors(containerColor = Color.White)
+            }
+            sp(value = 10)
+            /*if (data.audioFilePath != null) {
+                Card(
+                    modifier
+                        .fillMaxWidth()
+                        .height(20.dp)
+                        .clip(RoundedCornerShape(8.dp)),
+                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier.fillMaxWidth()
                     ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.sound_wave),
-                                modifier = modifier.size(120.dp),
-                                contentDescription = null
-                            )
-                            Text(text = "Audio : ${data.audioDuration}", fontSize = 12.sp)
-                        }
-
+                        Image(
+                            painter = painterResource(id = R.drawable.sound_wave),
+                            modifier = modifier.size(120.dp),
+                            contentDescription = null
+                        )
+                        Text(text = "Audio : ${data.audioDuration}", fontSize = 12.sp)
                     }
+
                 }
-            }
-            Spacer(modifier = modifier.height(10.dp))
-
-            if (data.title.isNotBlank()) {
-                Text(
-                    text = data.title,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
-                )
-                Spacer(modifier = Modifier.height(5.dp))
-            }
-
-            Text(
-                text = data.content,
-                fontSize = 14.sp,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis
-            )
-
-            Spacer(modifier = Modifier.height(10.dp))
+            }*/
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
