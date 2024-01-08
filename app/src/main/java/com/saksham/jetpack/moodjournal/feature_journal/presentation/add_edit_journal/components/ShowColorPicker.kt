@@ -84,7 +84,7 @@ fun ShowColorPicker(
                             .background(color)
                             .border(
                                 width = 1.dp,
-                                color = if (viewModel.journalColor.value.data == colorInt) {
+                                color = if (viewModel.journalColor.value == colorInt) {
                                     Color.Black
                                 } else Color.Transparent,
                                 shape = CircleShape

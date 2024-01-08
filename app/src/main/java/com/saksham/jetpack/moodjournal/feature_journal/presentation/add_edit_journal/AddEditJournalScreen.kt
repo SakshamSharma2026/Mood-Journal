@@ -99,12 +99,12 @@ fun AddEditJournalScreen(
 
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
-    val titleState = viewModel.journalPrompt.value.data
+    val titleState = viewModel.journalPrompt.value
     val contentState = viewModel.journalContent.value
-    val dateState = viewModel.journalDate.value.data
-    val imageUriState = viewModel.journalImageUri.value.data
-    val audioFilePath = viewModel.journalAudioFilePath.value.data
-    val audioDuration = viewModel.journalAudioDuration.value.data
+    val dateState = viewModel.journalDate.value
+    val imageUriState = viewModel.journalImageUri.value
+    val audioFilePath = viewModel.journalAudioFilePath.value
+    val audioDuration = viewModel.journalAudioDuration.value
 
 
     val photoPickerLauncher =
@@ -117,7 +117,7 @@ fun AddEditJournalScreen(
             })
 
     val journalBackgroundAnimatable = remember {
-        Animatable(Color(if (journalColor != -1) journalColor else viewModel.journalColor.value.data))
+        Animatable(Color(if (journalColor != -1) journalColor else viewModel.journalColor.value))
     }
 
     val player by lazy {
