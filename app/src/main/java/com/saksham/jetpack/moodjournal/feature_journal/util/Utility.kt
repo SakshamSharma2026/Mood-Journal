@@ -1,8 +1,12 @@
 package com.saksham.jetpack.moodjournal.feature_journal.util
 
 import android.Manifest
+import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
@@ -22,7 +26,7 @@ fun getCurrentDateTime(
 }
 
 
-fun shareContent(context: android.content.Context, title: String, description: String) {
+fun shareContent(context: Context, title: String, description: String) {
     val sendIntent: Intent = Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_TEXT, "$title\n\n$description")
@@ -49,8 +53,74 @@ fun generateRecordingName(path: String?): String {
 }
 
 @Composable
-fun sp(value: Int) {
+fun hsp(value: Int) {
     Spacer(modifier = Modifier.height(value.dp))
+}
+
+fun getAppVersion(context: Context): String {
+    val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
+    return packageInfo.versionName
+}
+
+fun openBrowser(context: Context) {
+    val url = "https://www.app-privacy-policy.com/live.php?token=EoT0Pt8H4oV8Q3LzsRkxBTs6MEdCRDrx"
+    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    context.startActivity(browserIntent)
+}
+
+
+fun sendFeedbackByEmail(context: Context) {
+
+    val deviceModel = Build.MODEL
+    val androidVersion = Build.VERSION.RELEASE
+
+    val body =
+        "\n\n\n\n\n\n\n\nDevice Model : $deviceModel \nApp Version : ${getAppVersion(context)} \nAndroid Version : $androidVersion"
+
+    val emailUrl =
+        "mailto:consolecrafttechnologies@gmail.com?subject=Mood Journal Feedback/Suggestions&body=$body"
+
+    val intent = Intent(Intent.ACTION_SENDTO).apply {
+        data = Uri.parse(emailUrl)
+    }
+    try {
+        context.startActivity(Intent.createChooser(intent, "Send Email"))
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+
+fun shareApp(context: Context) {
+    val appPackageName: String = context.packageName
+    val sendIntent = Intent()
+    sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    sendIntent.action = Intent.ACTION_SEND
+    sendIntent.putExtra(
+        Intent.EXTRA_TEXT,
+        "Check out the App at:\n https://play.google.com/store/apps/details?id=$appPackageName"
+    )
+    sendIntent.type = "text/plain"
+    context.startActivity(sendIntent)
+}
+
+fun rateApp(context: Context) {
+    val appName = context.packageName
+    try {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("market://details?id=$appName")
+            )
+        )
+    } catch (e: ActivityNotFoundException) {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://play.google.com/store/apps/details?id=$appName")
+            )
+        )
+    }
 }
 
 fun requiredAudioPermission(context: ComponentActivity) {

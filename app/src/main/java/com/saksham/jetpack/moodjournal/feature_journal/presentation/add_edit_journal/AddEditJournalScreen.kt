@@ -76,7 +76,7 @@ import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_jou
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_journal.components.VerticalDivider
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_journal.util.AndroidAudioPlayer
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.journal_screen.UiEvent
-import com.saksham.jetpack.moodjournal.feature_journal.util.sp
+import com.saksham.jetpack.moodjournal.feature_journal.util.hsp
 import com.saksham.jetpack.moodjournal.ui.theme.Violet
 import com.saksham.jetpack.moodjournal.ui.theme.fontFamily
 import kotlinx.coroutines.flow.collectLatest
@@ -196,14 +196,12 @@ fun AddEditJournalScreen(
                             Button(border = BorderStroke(1.dp, Color.Black),
                                 colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.Black),
                                 onClick = {
-                                    if (!dataStoreState.firstEntryCompleted) {
-                                        dataStoreOperationsViewModel.onEvent(
-                                            DataStoreOperationsEvent.SaveFirstEntryCompleted(
-                                                true
-                                            )
-                                        )
-                                    }
                                     viewModel.onEvent(AddEditJournalEvent.SaveJournal)
+                                    dataStoreOperationsViewModel.onEvent(
+                                        DataStoreOperationsEvent.SaveFirstEntryCompleted(
+                                            true
+                                        )
+                                    )
                                 }) {
                                 Icon(
                                     Icons.Filled.Done,
@@ -220,7 +218,7 @@ fun AddEditJournalScreen(
                         }
                     }
                 }
-                sp(value = 20)
+                hsp(value = 20)
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier.fillMaxWidth()
@@ -243,7 +241,7 @@ fun AddEditJournalScreen(
                         )
                     }
                 }
-                sp(value = 20)
+                hsp(value = 20)
                 AnimatedVisibility(visible = titleState.isNotBlank()) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -276,7 +274,7 @@ fun AddEditJournalScreen(
 
                     }
                 }
-                sp(value = 20)
+                hsp(value = 20)
                 AnimatedVisibility(visible = contentState.text.isEmpty()) {
                     Button(
                         onClick = {
@@ -302,7 +300,7 @@ fun AddEditJournalScreen(
                         )
                     }
                 }
-                sp(value = 10)
+                hsp(value = 10)
                 CustomHintTextField(
                     text = contentState.text,
                     hint = contentState.hint,
@@ -383,7 +381,7 @@ fun AddEditJournalScreen(
                     }
                 }
 
-                sp(value = 10)
+                hsp(value = 10)
 
                 AnimatedVisibility(visible = imageUriState.toString().isNotEmpty()) {
                     Box {
@@ -434,7 +432,7 @@ fun AddEditJournalScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.padding(12.dp)
                     ) {
-                        sp(value = 8)
+                        hsp(value = 8)
                         Icon(painterResource(id = R.drawable.gallery_icon),
                             null,
                             tint = Color.Black,
@@ -472,7 +470,7 @@ fun AddEditJournalScreen(
                                             requiredAudioPermission(componentActivity)
                                             viewModel.onEvent(AddEditJournalEvent.ToggleVoiceRecorderSheet)
                                         })*/
-                        sp(value = 8)
+                        hsp(value = 8)
                     }
                 }
             }

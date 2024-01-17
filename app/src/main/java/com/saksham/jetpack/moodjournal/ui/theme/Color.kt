@@ -8,6 +8,7 @@ val Pink80 = Color(0xFFEFB8C8)
 
 val Violet = Color(0xFF7A70DD)
 
+val ActivityBg = Color(0xFFF7F6F3)
 val ShimmerGray = Color(0xFFeeeff3)
 val WhisperWhite = Color(0xFFF4F4F4)
 val SilverSand = Color(0xFFEAEAEA)

@@ -34,7 +34,7 @@ import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_jou
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.add_edit_journal.util.AndroidAudioRecorder
 import com.saksham.jetpack.moodjournal.feature_journal.util.formatDuration
 import com.saksham.jetpack.moodjournal.feature_journal.util.generateRecordingName
-import com.saksham.jetpack.moodjournal.feature_journal.util.sp
+import com.saksham.jetpack.moodjournal.feature_journal.util.hsp
 import com.saksham.jetpack.moodjournal.ui.theme.Violet
 import com.saksham.jetpack.moodjournal.ui.theme.fontFamily
 import kotlinx.coroutines.CoroutineScope
@@ -82,22 +82,22 @@ fun ShowVoiceRecorder(
                     contentDescription = null,
                     modifier = Modifier.size(80.dp)
                 )
-                sp(value = 20)
+                hsp(value = 20)
                 Text(
                     text = stringResource(R.string.record_voice_note),
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 18.sp
                 )
-                sp(value = 5)
+                hsp(value = 5)
                 Text(
                     text = stringResource(R.string.tap_the_below_button_when_ready),
                     fontSize = 12.sp
                 )
-                sp(value = 20)
+                hsp(value = 20)
 
                 if (state.isVoiceRecorderActive) {
                     Text(text = formatDuration(viewModel.recordingDuration.value), fontSize = 18.sp)
-                    sp(value = 20)
+                    hsp(value = 20)
                 }
 
 
@@ -141,7 +141,7 @@ fun ShowVoiceRecorder(
                         modifier = Modifier.size(20.dp),
                     )
                 }
-                sp(value = 20)
+                hsp(value = 20)
             }
 
         }

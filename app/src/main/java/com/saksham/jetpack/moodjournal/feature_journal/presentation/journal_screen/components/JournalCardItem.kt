@@ -37,7 +37,7 @@ import com.saksham.jetpack.moodjournal.feature_journal.domain.util.journal.Journ
 import com.saksham.jetpack.moodjournal.feature_journal.navigation.Screen
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.journal_screen.JournalViewModel
 import com.saksham.jetpack.moodjournal.feature_journal.util.shareContent
-import com.saksham.jetpack.moodjournal.feature_journal.util.sp
+import com.saksham.jetpack.moodjournal.feature_journal.util.hsp
 
 
 fun journalData(
@@ -76,7 +76,7 @@ fun CardViewItem(
         shape = RoundedCornerShape(16.dp)
     ) {
         Column(modifier.padding(horizontal = 12.dp, vertical = 10.dp)) {
-            sp(value = 10)
+            hsp(value = 10)
             Row(
                 modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -118,7 +118,7 @@ fun CardViewItem(
                     )
                 }
             }
-            sp(value = 10)
+            hsp(value = 10)
             /*if (data.audioFilePath != null) {
                 Card(
                     modifier

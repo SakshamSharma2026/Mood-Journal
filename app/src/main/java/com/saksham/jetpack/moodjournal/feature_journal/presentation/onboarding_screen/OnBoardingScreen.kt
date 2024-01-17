@@ -2,6 +2,7 @@ package com.saksham.jetpack.moodjournal.feature_journal.presentation.onboarding_
 
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -50,7 +51,7 @@ import com.saksham.jetpack.moodjournal.R
 import com.saksham.jetpack.moodjournal.feature_journal.domain.util.datastore.DataStoreOperationsEvent
 import com.saksham.jetpack.moodjournal.feature_journal.navigation.Screen
 import com.saksham.jetpack.moodjournal.feature_journal.presentation.DataStoreOperationsViewModel
-import com.saksham.jetpack.moodjournal.feature_journal.util.sp
+import com.saksham.jetpack.moodjournal.feature_journal.util.hsp
 import com.saksham.jetpack.moodjournal.ui.theme.PeachSorbet
 import com.saksham.jetpack.moodjournal.ui.theme.Violet
 
@@ -82,22 +83,6 @@ fun OnBoardingScreen(
             .fillMaxSize()
             .background(PeachSorbet)
     ) {
-
-        Card(
-            modifier = Modifier
-                .padding(vertical = 40.dp, horizontal = 20.dp)
-                .clip(CircleShape)
-                .clickable {
-                    navController.navigateUp()
-                }, colors = CardDefaults.cardColors(containerColor = Color.White)
-        ) {
-            Icon(
-                Icons.AutoMirrored.Filled.ArrowBack,
-                "Back Button",
-                tint = Color.Black,
-                modifier = Modifier.padding(8.dp)
-            )
-        }
         Card(
             modifier = Modifier
                 .fillMaxWidth(0.9f)
@@ -114,12 +99,12 @@ fun OnBoardingScreen(
             ) {
 
                 Image(
-                    modifier = Modifier.size(120.dp),
+                    modifier = Modifier.size(100.dp),
                     painter = painterResource(id = R.drawable.panda_bear),
                     contentDescription = null
                 )
                 Text(text = stringResource(R.string.what_should_we_call_you))
-                sp(value = 10)
+                hsp(value = 10)
                 OutlinedTextField(
                     colors = textFieldColors,
                     placeholder = { Text(text = stringResource(R.string.enter_your_first_name)) },
@@ -128,7 +113,7 @@ fun OnBoardingScreen(
                     value = text, onValueChange = { text = it })
                 Button(
                     modifier = Modifier
-                        .padding(30.dp)
+                        .padding(horizontal = 30.dp, vertical = 5.dp)
                         .fillMaxWidth(),
                     onClick = {
                         if (text.isNotEmpty()) {

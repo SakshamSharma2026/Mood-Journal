@@ -18,4 +18,9 @@
     <string name="enter_your_first_name">Enter your first name</string>
     <string name="continue_btn">Continue</string>
     <string name="let_s_help_you_write_your_first_entry">Let\'s help you write your first entry!</string>
+    <string name="consolecraft_technologies">ConsoleCraft Technologies</string>
+    <string name="invite_friends_family"><![CDATA[Invite friends & family]]></string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_mood_journal_app">Rate Mood Journal App</string>
+    <string name="share_feedback">Share Feedback</string>
 </resources>

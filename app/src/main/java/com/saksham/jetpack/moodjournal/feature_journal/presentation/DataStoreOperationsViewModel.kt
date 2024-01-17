@@ -49,9 +49,10 @@ class DataStoreOperationsViewModel @Inject constructor(
     fun onEvent(event: DataStoreOperationsEvent) {
         when (event) {
             is DataStoreOperationsEvent.SaveFirstEntryCompleted -> {
-                viewModelScope.launch(Dispatchers.IO) {
-                    useCases.saveFirstEntryUseCase(event.completed)
-                }
+                if (!_state.value.firstEntryCompleted)
+                    viewModelScope.launch(Dispatchers.IO) {
+                        useCases.saveFirstEntryUseCase(event.completed)
+                    }
             }
 
             is DataStoreOperationsEvent.SaveOnBoardingCompleted -> {

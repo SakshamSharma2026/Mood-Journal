@@ -9,14 +9,6 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        create("release") {
-            storeFile = file("/Users/sakshamsharma/Projects/InnerCanvas/app/Untitled")
-            storePassword = "12345678"
-            keyAlias = "MoodJournalKey"
-            keyPassword = "12345678"
-        }
-    }
     namespace = "com.saksham.jetpack.moodjournal"
     compileSdk = 34
 
@@ -24,8 +16,8 @@ android {
         applicationId = "com.saksham.jetpack.moodjournal"
         minSdk = 30
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 6
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
