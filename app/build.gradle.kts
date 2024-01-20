@@ -9,6 +9,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("/Users/sakshamsharma/Projects/MoodJournal/app/Untitled")
+            storePassword = "12345678"
+            keyAlias = "MoodJournalKey"
+            keyPassword = "12345678"
+        }
+    }
     namespace = "com.saksham.jetpack.moodjournal"
     compileSdk = 34
 
@@ -34,9 +42,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            testProguardFiles("test-proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
-            applicationIdSuffix = ".Debug"
             versionNameSuffix = "Debug"
         }
     }
