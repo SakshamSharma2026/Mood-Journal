@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939260790340",
+    "project_id": "mood-journal-4d43d",
+    "storage_bucket": "mood-journal-4d43d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939260790340:android:e3e782f4d668b5542b1e11",
+        "android_client_info": {
+          "package_name": "com.saksham.jetpack.moodjournal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzk1UxX1MJXKVsBghN7cMg6KEVe3o_Ey4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
