@@ -4,8 +4,8 @@
 
 [![Static Badge](https://img.shields.io/badge/Kotlin-black?logo=kotlin)]()
 [![Static Badge](https://img.shields.io/badge/Jetpack--compose-black?logo=jetpack%20compose)]()
-![Static Badge](https://img.shields.io/badge/Download-black?logo=android&link=https%3A%2F%2Fgithub.com%2FSakshamSharma2026%2FMood-Journal%2Freleases)
-
+[![Static Badge](https://img.shields.io/badge/Download--apk-black?logo=android)](https://github.com/SakshamSharma2026/Mood-Journal/releases)
+[![Android CI Build](https://github.com/SakshamSharma2026/Mood-Journal/actions/workflows/ci_build.yml/badge.svg)](https://github.com/SakshamSharma2026/Mood-Journal/actions/workflows/ci_build.yml)
 
 ![App Screenshot](https://github.com/SakshamSharma2026/Mood-Journal/blob/main/ss/ss.png?raw=true)
 
