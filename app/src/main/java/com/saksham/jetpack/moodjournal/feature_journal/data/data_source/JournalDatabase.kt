@@ -7,7 +7,7 @@ import com.saksham.jetpack.moodjournal.feature_journal.domain.model.JournalDataR
 import com.saksham.jetpack.moodjournal.feature_journal.domain.util.journal.JournalDataTypeConverter
 
 
-@Database(entities = [JournalDataResponse::class], version = 1)
+@Database(entities = [JournalDataResponse::class], version = 1, exportSchema = false)
 @TypeConverters(JournalDataTypeConverter::class)
 abstract class JournalDatabase : RoomDatabase() {
     abstract val journalDao: JournalDao

@@ -1,18 +1,20 @@
 
 # Mood Journal
 
+
+[![Static Badge](https://img.shields.io/badge/Kotlin-black?logo=kotlin)]()
+[![Static Badge](https://img.shields.io/badge/Jetpack--compose-black?logo=jetpack%20compose)]()
+[![Static Badge](https://img.shields.io/badge/Download--apk-black?logo=android)](https://github.com/SakshamSharma2026/Mood-Journal/releases)
+[![Android CI Build](https://github.com/SakshamSharma2026/Mood-Journal/actions/workflows/ci_build.yml/badge.svg)](https://github.com/SakshamSharma2026/Mood-Journal/actions/workflows/ci_build.yml)
+
 ![App Screenshot](https://github.com/SakshamSharma2026/Mood-Journal/blob/main/ss/ss.png?raw=true)
 
 
 
-[![Static Badge](https://img.shields.io/badge/kotlin-black?logo=kotlin)]()
-[![Static Badge](https://img.shields.io/badge/jetpack--compose-black?logo=jetpack%20compose)]()
 
+### Mood Journal is a sleek and feature-rich Android app built with Jetpack Compose, designed to help users track their journaling and daily experiences effortlessly. This app provides a clean and intuitive user interface with a variety of customization options.
 
-
-#### Mood Journal is a sleek and feature-rich Android app built with Jetpack Compose, designed to help users track their journaling and daily experiences effortlessly. This app provides a clean and intuitive user interface with a variety of customization options.
-
-## Features ✨
+## Features ✨-
 - Custom Date Selection
 - New Prompts
 - Color Selection
@@ -134,6 +136,6 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 Special thanks to Jetpack Compose for making UI development on Android a breeze!
-
 ## Feedback
+
 If you have any feedback, please reach out to us at developer.saksham26@gmail.com
